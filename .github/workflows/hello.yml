@@ -25,6 +25,3 @@ jobs:
 
       - name: Print Operating System
         run: uname -a
-
-      - name: Intentional Failure
-        run: exit 1
