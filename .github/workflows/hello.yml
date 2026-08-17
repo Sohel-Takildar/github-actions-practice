@@ -3,6 +3,9 @@ name: Hello GitHub Actions
 on:
   push:
 
+  schedule:
+    - cron: '0 0 * * *'
+
 jobs:
   greet:
     runs-on: ubuntu-latest
