@@ -1,0 +1,23 @@
+name: PR Check
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  pr-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: PR Check Message
+        run: 'echo "Pull Request workflow triggered successfully!"'
+
+      - name: Show Branch
+        run: 'echo "PR branch: ${{ github.head_ref }}"'
+
+      - name: Show Repository
+        run: 'echo "Repository: ${{ github.repository }}"'
