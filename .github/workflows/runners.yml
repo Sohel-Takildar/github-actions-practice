@@ -1,0 +1,42 @@
+name: Runner OS Test
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  ubuntu:
+    name: Ubuntu Runner
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Show Ubuntu information
+        run: |
+          echo "OS: Ubuntu"
+          echo "Hostname: $(hostname)"
+          echo "Current User: $(whoami)"
+
+  windows:
+    name: Windows Runner
+    runs-on: windows-latest
+
+    steps:
+      - name: Show Windows information
+        shell: pwsh
+        run: |
+          Write-Host "OS: Windows"
+          Write-Host "Hostname: $env:COMPUTERNAME"
+          Write-Host "Current User: $env:USERNAME"
+
+  macos:
+    name: macOS Runner
+    runs-on: macos-latest
+
+    steps:
+      - name: Show macOS information
+        run: |
+          echo "OS: macOS"
+          echo "Hostname: $(hostname)"
+          echo "Current User: $(whoami)"
