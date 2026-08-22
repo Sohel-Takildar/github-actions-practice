@@ -1,0 +1,38 @@
+name: Self Hosted Runner Test
+
+on:
+  push:
+    branches:
+      - day-41-pr-test
+  workflow_dispatch:
+
+jobs:
+  self-hosted-job:
+    name: Run on Self Hosted Runner
+    runs-on: [self-hosted, my-linux-runner]
+
+    steps:
+      - name: Show hostname
+        run: |
+          echo "Hostname:"
+          hostname
+
+      - name: Show current user
+        run: |
+          echo "Current User:"
+          whoami
+
+      - name: Show working directory
+        run: |
+          echo "Working Directory:"
+          pwd
+
+      - name: Create test file
+        run: |
+          echo "Hello from GitHub Actions self-hosted runner" > self-hosted-test.txt
+          echo "File created successfully"
+
+      - name: Verify test file
+        run: |
+          ls -l self-hosted-test.txt
+          cat self-hosted-test.txt
