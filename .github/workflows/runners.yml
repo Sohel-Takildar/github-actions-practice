@@ -3,7 +3,7 @@ name: Runner OS Test
 on:
   push:
     branches:
-      - main
+      - day-41-pr-test
   workflow_dispatch:
 
 jobs:
