@@ -18,6 +18,20 @@ jobs:
           echo "Hostname: $(hostname)"
           echo "Current User: $(whoami)"
 
+      - name: Check pre-installed tools
+        run: |
+          echo "Docker version:"
+          docker --version
+
+          echo "Python version:"
+          python3 --version
+
+          echo "Node version:"
+          node --version
+
+          echo "Git version:"
+          git --version
+
   windows:
     name: Windows Runner
     runs-on: windows-latest
